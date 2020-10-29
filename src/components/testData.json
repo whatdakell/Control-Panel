@@ -1,0 +1,22 @@
+[
+		{
+			"side" : "Left Front",
+			"class": "left-fr",
+			"value" : 0
+		},
+		{
+			"side" : "Right Front",
+			"class": "right-fr",
+			"value" : 60
+		},
+		{
+			"side" : "Left Back",
+			"class" : "left-bk",
+			"value" : 36
+		},
+		{
+			"side" : "Right Back",
+			"class": "right-bk",
+			"value" : 70
+		}
+]

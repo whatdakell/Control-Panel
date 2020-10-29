@@ -1,0 +1,20 @@
+// @import 'partials/vueOV';
+@import 'partials/mixins';
+@import 'partials/vars';
+@import 'partials/globals';
+
+body{
+	background-color: #bfcbdb;
+	color: $active;
+}
+label{
+	color: green;
+	
+}
+.v-label{
+	 color:black;
+	 font-size: 1rem;
+ }
+// input{
+// 	background-color: blue;
+// }
