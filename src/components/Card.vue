@@ -3,6 +3,12 @@
   elevation="5">
 	<Nav @testOmit="tester"/>
 	<Car />
+	<v-alert
+	>	
+		<p v-if="tp.value < 50">Check your {{tp.side}} tire ! Its at {{tp.value}}</p>
+		<p v-if="tp.value > 50"> Your {{tp.side}} tire looks good! </p>
+		<p v-show="!tp"> Check your Tire Pressure Above </p>		
+	</v-alert>	
 	<ToggleSwift/>
 </v-card>
 </template>
@@ -35,16 +41,16 @@ export default {
 		},
 	methods: {
 		tester (data) {
+			// using a class value from json to find the tire to animate
 			const getTire = document.querySelector(`.${data.class}`);
+			// Use the Json to animate and fill the tire
 			getTire.setAttribute('style',`transform:translateY(-${data.value}%)`)
 			
 			this.tp = data
 			console.log(getTire, this.tp);
-		},
-		funTest (){
-			console.log('changed');
-			this.people = true;
 		}
+	},
+	mounted () {
 	}
 }
 </script>

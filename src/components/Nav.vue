@@ -56,10 +56,9 @@ export default {
 
 <style lang="scss" scoped>
 
-
 // .v-input{
 // 	max-width:50%;
+// 	// background: $bg-primary;
 // 	margin: 0 auto;
 // }
-	// max-width: 50%;
 </style>

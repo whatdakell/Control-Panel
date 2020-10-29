@@ -1,64 +1,45 @@
 <template>
-	<div class="car-container">
-		<div class="car car-top">
-			<div class="tire left">
-				<div class="tire-outline"><span class="tire-fill left-fr"></span></div>
-				<div class="tire-label">
-					<p>1.9 BAR</p>
-					<div class="shape"> </div>
+	<div class="top-card">
+
+		<div class="car-container">
+			<div class="car car-top">
+				<div class="tire left">
+					<div class="tire-outline"><span class="tire-fill left-fr"></span></div>
+					<div class="tire-label">
+						<p>1.9 BAR</p>
+						<div class="shape"> </div>
+					</div>
+				</div>
+				<div class="middle">
+				</div>
+				<div class="tire right">
+					<div class="tire-outline"><span class="tire-fill right-fr"></span></div>
+					<div class="tire-label">
+						<p>1.9 BAR</p>
+						<div class="shape"> </div>
+					</div>
 				</div>
 			</div>
-			<div class="middle">
-			</div>
-			<div class="tire right">
-				<div class="tire-outline"><span class="tire-fill right-fr"></span></div>
-				<div class="tire-label">
-					<p>1.9 BAR</p>
-					<div class="shape"> </div>
+			<div class="car car-bottom">
+				<div class="tire left">
+					<div class="tire-outline"><spin class="tire-fill left-bk"></spin></div>
+					<div class="tire-label">
+						<p>1.9 BAR</p>
+						<div class="shape"> </div>
+					</div>
+				</div>
+				<div class="middle">
+				</div>
+				<div class="tire right">
+					<div class="tire-outline"><span class="tire-fill right-bk"></span></div>
+					<div class="tire-label">
+						<p>1.9 BAR</p>
+						<div class="shape"> </div>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="car car-bottom">
-			<div class="tire left">
-				<div class="tire-outline"><spin class="tire-fill left-bk"></spin></div>
-				<div class="tire-label">
-					<p>1.9 BAR</p>
-					<div class="shape"> </div>
-				</div>
-			</div>
-			<div class="middle">
-			</div>
-			<div class="tire right">
-				<div class="tire-outline"><span class="tire-fill right-bk"></span></div>
-				<div class="tire-label">
-					<p>1.9 BAR</p>
-					<div class="shape"> </div>
-				</div>
-			</div>
-		</div>
-			<!-- <v-btn
-				@click='open = !open'
-				elevation="2"
-				fab
-				icon
-				outlined
-				raised
-				rounded
-				text
-				:disabled="false"
-				tile ="hello"
-				
-			></v-btn> -->
-			<v-alert v-show='open'
-				elevation="9"
-				icon=""
-				outlined
-				type="warning"
-			>
-			</v-alert>	
-			{{users}}
 	</div>
-	
 </template>
 
 <script>
@@ -69,15 +50,15 @@ export default {
   // },
 	data () {
 			return {
-				users: [],
-				open: false,
+				// users: [],
+				// open: true,
 			}
 		},
 	methods: {
-		funTest : function(){
-			console.log('changed');
-			this.people = true;
-		}
+		// funTest : function(){
+		// 	console.log('changed');
+		// 	this.people = true;
+		// }
 	}
 }
 </script>

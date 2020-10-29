@@ -1,0 +1,14 @@
+.v-alert{
+	background: $bg-primary;
+	text-align: center;
+	@include corners;
+	font-weight: bold;
+	margin: 10% auto;
+}
+
+.drop-down{
+	.v-input__slot{
+		background: $bg-primary!important;
+		@extend .v-alert;
+	}
+}

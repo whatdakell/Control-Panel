@@ -2,6 +2,10 @@
 @import 'partials/mixins';
 @import 'partials/vars';
 @import 'partials/globals';
+// @import 'partials/*';
+
+@import './vuetify/v-alert';
+@import './vuetify/v-overrides';
 
 body{
 	background-color: #bfcbdb;
