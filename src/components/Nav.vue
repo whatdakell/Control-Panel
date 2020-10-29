@@ -36,6 +36,13 @@ export default {
 		emitEventChanged () {
 				this.$emit('testOmit', this.tp);
 				}
+		},
+		mounted () {
+			const baseURI = testData
+			this.$http.get(baseURI)
+			.then((result) => {
+				console.log(result.data, "this is the results");
+			})
 		}
 		// computed: {
 		// 	select: function(){

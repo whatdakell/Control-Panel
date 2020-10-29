@@ -1,5 +1,5 @@
 <template>
-  <div class="car-container">
+	<div class="car-container">
 		<div class="car car-top">
 			<div class="tire left">
 				<div class="tire-outline"><span class="tire-fill left-fr"></span></div>
@@ -36,8 +36,7 @@
 				</div>
 			</div>
 		</div>
-<!-- 
-			<v-btn
+			<!-- <v-btn
 				@click='open = !open'
 				elevation="2"
 				fab
@@ -57,18 +56,20 @@
 				type="warning"
 			>
 			</v-alert>	
-  </div>
+			{{users}}
+	</div>
 	
 </template>
 
 <script>
 export default {
-  name: 'Card',
+	name: 'Card',
   // props: {
   //   msg: String
   // },
 	data () {
 			return {
+				users: [],
 				open: false,
 			}
 		},
