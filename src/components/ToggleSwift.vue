@@ -81,13 +81,13 @@ export default {
 }
 
 // Label
-.v-input__slot{
-	font-size: 10px;
-	color:black;
-	label{
-		color:green;
-	}
-}
+// .v-input__slot{
+// 	font-size: 10px;
+// 	color:black;
+// 	label{
+// 		color:green;
+// 	}
+// }
 // >>>input#input-16{
 // 	background: green;
 // 	width:130px;

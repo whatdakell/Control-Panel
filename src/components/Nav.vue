@@ -8,8 +8,10 @@
 			item-value="value"
 			label="Select"
 			solo
+			append-icon = "mdi-format-align-right"
 			return-object
 			@change="emitEventChanged"
+			
 		>	</v-select>
 
 	</div>

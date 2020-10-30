@@ -50,22 +50,21 @@
 	}
 }
 
-
+.v-application{
+	background-color: #aad4ff75 !important;
+}
 .v-card{
-	background: $bg-primary;
+	// background: $bg-primary;
+	background: linear-gradient(white, 10%, $bg-primary);
 	margin: 30px auto;
 	padding: 5% 20px;
 	/* display: flex; */
 	width: 400px;
+	box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.2), 0px 9px 12px 1px rgba(0, 0, 0, 0.14), 0px 3px 16px 2px rgba(0, 0, 0, 0.12)!important;
+	border-radius: 30px;
 }
 
 $inputDem: 25px;
-
-.btns{
-	background-color: $bg-primary;
-	display:flex;
-	justify-content: space-between;
-}
 
 .v-item-group{
 	display:flex;
@@ -81,6 +80,9 @@ $inputDem: 25px;
 }
 .btns{
 	margin-top: 10%;
+	background-color: $bg-primary;
+	display:flex;
+	justify-content: space-between;
 	.v-btn.v-size--default{
 		height: 50px;
 		width: 50px;
@@ -106,3 +108,13 @@ $inputDem: 25px;
 
 	}
 }
+
+.v-select{
+	.v-menu__content{
+		@include corners
+	}
+	.v-input__append-inner{
+		@include corners;
+	}
+}
+
