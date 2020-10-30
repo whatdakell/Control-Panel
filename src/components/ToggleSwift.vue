@@ -1,50 +1,22 @@
 <template>
 	<div class="bottom-container">
 		<div class="toggle-switch-ctn">
-
 			<v-switch
 				v-for="a in switchs" :key="a"
 				inset
 				v-model= a.attr
-				multiple ="true"
 				:label="`${a.label}: ${a.attr ? 'On' : 'Off'}`"
-				value="false"
+				value= false
 				
 			></v-switch>
-		
-			<!-- <v-switch
-				inset
-				v-model= "switch2"
-				color="primary"
-				multiple ="true"
-				:label="`Heating: ${switch2 ? 'on' : 'off'}`"
-				value="false"
-			></v-switch>
-				<v-switch
-				inset
-				v-model= "switch3"
-				color="primary"
-				multiple ="true"
-				:label="`Heating: ${switch3 ? 'on' : 'off'}`"
-				value="false"
-			></v-switch>
-				<v-switch
-				inset
-				v-model= "switch4"
-				color="primary"
-				multiple ="true"
-				:label="`Heating: ${switch4 ? 'on' : 'off'}`"
-				:value="true"
-			></v-switch> -->
 		</div>
 
 
 		<div class="btns">
-			<v-btn-toggle v-model="toggle_exclusive">
-				<v-btn v-for="item in items" :key="item.icon">
+
+				<v-btn v-for="item in items" :key="item.icon" @click="btnClick">
 					<v-icon>{{item.icon}}</v-icon>
 				</v-btn>
-			</v-btn-toggle>
 		</div>
 
 
@@ -57,11 +29,12 @@
 
 export default {
   name: 'Card',
-  // props: {
-  //   msg: String
-  // },
+  props: {
+    msg: String
+  },
 	data () {
 			return {
+				pressed: false,
 				items: [
 					{ icon: 'mdi-format-align-justify' },
 					{ icon: 'mdi-access-point' },
@@ -73,18 +46,12 @@ export default {
 					{ label: 'Alarm' , attr: 'switch2' },
 					{ label: 'Lights' , attr: 'switch3' },
 					{ label: 'Heating' , attr: 'switch4' },
-				],
-				switch1: null,
-				switch2: null,
-				switch3: null,
-				switch4: null,
-				open: false,
+				]
 			}
 		},
 	methods: {
-		funTest : function(){
-			console.log('changed');
-			this.people = true;
+		btnClick (event) {
+			event.target.classList.toggle('is-open');
 		}
 	}
 }

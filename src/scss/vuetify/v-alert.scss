@@ -19,9 +19,34 @@
 	width: 45%;
 	.v-input__slot{
 		flex-flow: row-reverse;
-		.v-input--selection-controls__input{
+		.v-input--switch__track{
 			@include corners;
 		}
+		.v-input--switch__thumb {
+			@include corners;
+			border: none;
+			width: 25px;
+			top:-1px;
+			left: -1px;
+			height: 25px;
+			&:before{
+				content: '';
+				background-image: url('../assets/idea.svg');
+				width: 20px;
+				height: 20px;
+				display: block;
+				@include center;
+				opacity: 0.5;
+			}
+			&.primary--text{
+				&:before{
+					opacity: 1;
+				}
+			}
+		}
+	}
+	label{
+		@include fontbase
 	}
 }
 
@@ -32,4 +57,52 @@
 	padding: 5% 20px;
 	/* display: flex; */
 	width: 400px;
+}
+
+$inputDem: 25px;
+
+.btns{
+	background-color: $bg-primary;
+	display:flex;
+	justify-content: space-between;
+}
+
+.v-item-group{
+	display:flex;
+	justify-content: space-between;
+	width: 100%;
+}
+// Disable Ripple 
+.v-btn:before {
+	opacity: 0 !important;
+}
+.v-ripple__container {
+	opacity: 0 !important;
+}
+.btns{
+	margin-top: 10%;
+	.v-btn.v-size--default{
+		height: 50px;
+		width: 50px;
+		// vo
+		min-width: 40px;
+		padding: 0;
+		@include corners;
+		border: none;
+		color: $active;
+		span{
+			pointer-events: none;
+			opacity: 0.7;
+			transition: all .4s ease-in;
+		}
+		&.is-open{
+			// box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.12)!important;
+			@include inShadow;
+			border: 2px solid #ffffff59;
+			span{
+				opacity: 1;
+			}
+		}
+
+	}
 }

@@ -1,16 +1,14 @@
 <template>
-	<v-card
-  elevation="5">
-	<Nav @testOmit="tester"/>
-	<Car />
-	<v-alert
-	>	
-		<p v-if="tp.value < 50">Check your {{tp.side}} tire ! Its at {{tp.value}}</p>
-		<p v-if="tp.value > 50"> Your {{tp.side}} tire looks good! </p>
-		<p v-show="!tp"> Check your Tire Pressure Above </p>		
-	</v-alert>	
-	<ToggleSwift/>
-</v-card>
+	<v-card>
+		<Nav @testOmit="tester"/>
+		<Car />
+		<v-alert>	
+			<p v-if="tp.value < 50">Check your {{tp.side}} tire ! Its at {{tp.value}}</p>
+			<p v-if="tp.value > 50"> Your {{tp.side}} tire looks good! </p>
+			<p v-show="!tp"> Check your Tire Pressure Above </p>		
+		</v-alert>	
+		<ToggleSwift/>
+	</v-card>
 </template>
 
 <script>
@@ -31,11 +29,6 @@ export default {
   // },
 	data () {
 			return {
-				switch1: false,
-				switch2: false,
-				switch3: false,
-				switch4: false,
-				open: false,
 				tp: ''
 			}
 		},

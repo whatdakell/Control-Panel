@@ -3,7 +3,7 @@
 
 		<v-select
 			v-model="tp"
-			:items="users"
+			:items="tpData"
 			item-text="side"
 			item-value="value"
 			label="Select"
@@ -28,7 +28,8 @@ export default {
     name: 'Nav',
 		data () {
 			return {
-				users: '',
+				tpData: [],
+				tp: '',
 				selection: testData,
       }
 		},
@@ -41,8 +42,7 @@ export default {
 			const baseURI = 'https://my-json-server.typicode.com/keli5466/demo/db'
 			this.$http.get(baseURI)
 			.then((result) => {
-				console.log(result.data.tirepressure, "this is the results");
-				this.users = result.data.tirepressure
+				this.tpData = result.data.tirepressure
 			})
 		}
 		// computed: {

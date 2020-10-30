@@ -44,22 +44,7 @@
 
 <script>
 export default {
-	name: 'Card',
-  // props: {
-  //   msg: String
-  // },
-	data () {
-			return {
-				// users: [],
-				// open: true,
-			}
-		},
-	methods: {
-		// funTest : function(){
-		// 	console.log('changed');
-		// 	this.people = true;
-		// }
-	}
+	name: 'Card'
 }
 </script>
 
@@ -68,18 +53,18 @@ export default {
 
 $line-width: 10px;
 $middle-width: $line-width * 3;
-$border-grey:
-$bg-primary;
+
+// Controls height
 $middle-height: 200px;
 
 .car-container{
 	display: flex;
 	flex-direction: column;
-	padding: 10%;
 	justify-content: center;
 	align-items: center;
 	max-width: 400px;
-	
+	padding: 10%;
+	// Car Placement CSS
 	.car{
 		height: $middle-height/2;
 		position: relative;
@@ -87,11 +72,17 @@ $middle-height: 200px;
 			position: absolute;
 		}
 		&-top {
+			z-index: 1;
+			margin-top:$line-width;
 			.middle::after{
 					top: $line-width;
 				}
-			.middle::before,
+			
+			.middle{
+				margin-top:$line-width;
+			}
 			.middle,
+			.middle::before,
 			.tire{
 				top: 0;
 			}
@@ -100,33 +91,42 @@ $middle-height: 200px;
 			.middle::after{
 					bottom: $line-width;
 			}
+			.middle{
+				margin-bottom:$line-width;
+			}
 			.middle::before,
 			.middle,
 			.tire{
 				bottom: 0;
 			}
+			.tire{
+				top: 50%;
+			}
 		}
 
 	}
+
 	.middle{
-		left:50%;
+		@include h-center;
+		@include inShadow;
 		background: white;
 		height: 100%;
 		width: $line-width;
 		min-width: 2px;
 		max-width: 10px;
-		transform: translateX(-50%);
+		// Middle Circle
 		&:before{
 			content: '';
 			position: absolute;
 			background: $bg-primary;
-			// top: -1px;
 			@include h-center;
 			border-radius: 100%;
-			border: $line-width white solid;
+			border: $line-width * 0.7 white solid;
 			width: $middle-width;
 			height: $middle-width;
+			@include inShadow;
 		}
+		// Line
 		&:after{
 			content: '';
 			@include h-center;
@@ -134,18 +134,21 @@ $middle-height: 200px;
 			height: $line-width;
 			background-color: white;
 			z-index: -1;
+			@include inShadow;
 		}
 	}
-
+	$tireheight: $line-width * 5;
+	$tirewidth: $line-width * 3;
 	.tire{
-		// position: relative;
+		
 		&-outline{
 			position: absolute;
 			background: white;
-			/*   animation: fill-up 10s ease linear; */
-			height: $line-width * 5;
-			width: $line-width * 3;
-			border-radius: 6px;
+			@include inShadow;
+			border: 1px solid rgba(0, 0, 0, 0.12);
+			height: $tireheight;
+			width: $tirewidth;
+			border-radius: 10px;
 			overflow: hidden;
 		}
 		&-fill{
@@ -153,30 +156,28 @@ $middle-height: 200px;
 				width: 100%;
 				height: 100%;
 				top:100%;
-				background: $orange;
+				background: linear-gradient(#ffc903e6, $orange);
 				transform: translateY(0%);
 				transition: transform 1.5s cubic-bezier(0, 0, 0.2, 1);
 		}
 		&-label{
-			// border-bottom: $border-grey;
-			// position: absolute;
 			p{
 				position: absolute;
-				// left: 0;
 				bottom: 100%;
+				@include fontbase;
 			}
 			.shape {
-				height: $middle-width;
+				height: $tireheight/2;
 				top:0;
-				width: 80px;
+				width: 60px;
 				border-width: 2px;
-				border-top: 2px solid red;
+				border-top: 1px solid $inactive;
 				&:after{
 					content: '';
-					border-bottom: 2px solid red;
+					border-bottom: 1px solid $inactive;
 					width: 10px;
 					position: absolute;
-					bottom: 0 ;
+					bottom: 0;
 
 				}
 			}
@@ -190,7 +191,7 @@ $middle-height: 200px;
 			}
 			.shape{
 				transform: skew(145deg);
-				border-left: 2px solid red;
+				border-left: 1px solid $inactive;
 				&:after{
 					right: 100%;
 				}
@@ -199,7 +200,7 @@ $middle-height: 200px;
 				p { 
 					right:0;
 				}
-				padding-left: 60px;
+				padding-left: $tirewidth + 25px;
 			}
 		}
 		&.left{
@@ -212,11 +213,11 @@ $middle-height: 200px;
 				p {
 					left:0;
 				}
-				padding-right: 60px;
+				padding-right: $tirewidth + 25px;
 			}
 			.shape{
 				transform: skew(-145deg);
-				border-right: 2px solid red;
+				border-right: 1px solid $inactive;
 				&:after{
 					left: 100%;
 				}
