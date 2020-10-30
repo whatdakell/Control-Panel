@@ -20,15 +20,19 @@ p{
 .v-ripple__container {
 	opacity: 0 !important;
 }
-
 // Card Parent
 .v-card{
-	background: linear-gradient(white, 10%, $bg-primary);
+	background: linear-gradient(white, 0%, $bg-primary);
 	margin: 30px auto;
-	padding: 5% 20px;
+	padding: 30px 20px;
 	width: 400px;
 	box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.2), 0px 9px 12px 1px rgba(0, 0, 0, 0.14), 0px 3px 16px 2px rgba(0, 0, 0, 0.12)!important;
 	border-radius: 30px;
+	@media only screen and (max-width: 600px) {
+		body {
+			width: 350px;
+		}
+	}
 }
 
 $sideGutter: 50px;
@@ -63,14 +67,12 @@ $sideGutter: 50px;
 		}
 	}
 	.v-input__slot{
-		// width: 80%;
 		text-align: center;
 		@include corners;
 		font-weight: bold;
 		height: $dropDownHeight;
 		.v-select__slot {
 			.v-label{
-				// @include h-center();
 				padding-right: 50px;
 				left: 50%!important;
 				transform: translateX(-50%);
@@ -101,11 +103,17 @@ $sideGutter: 50px;
 	text-align: center;
 	@include corners;
 	font-weight: bold;
-	margin: 10% auto;
+	margin: $v-space auto;
 	height: $dropDownHeight;
 	padding:0 5px;
 	display: flex;
 	justify-content: center;
+	.v-alert__wrapper{
+		width: 100%;
+	}
+	p{
+		font-size: 14px;
+	}
 
 }
 
@@ -116,19 +124,23 @@ $sideGutter: 50px;
 // }
 
 .btns{
-	margin-top: 10%;
+	margin-top: $v-space; 
 	background-color: $bg-primary;
 	display:flex;
 	justify-content: space-between;
 	.v-btn.v-size--default{
-		height: 50px;
-		width: 50px;
+		height: 60px;
+		width: 60px;
 		// vo
 		min-width: 40px;
 		padding: 0;
 		@include corners;
 		border: none;
 		color: $active;
+			@media only screen and (max-width: 600px) {
+				height: 50px;
+				width: 50px;
+				}
 		span{
 			pointer-events: none;
 			opacity: 0.7;
@@ -145,7 +157,7 @@ $sideGutter: 50px;
 	}
 }
 
-$inputDem: 30px;
+$inputDem: 40px;
 
 // Toggle Switchs
 .v-input--switch{
@@ -154,9 +166,26 @@ $inputDem: 30px;
 		flex-flow: row-reverse;
 		.v-input--switch__track{
 			@include corners;
+			height: $inputDem;
+			width: $inputDem * 1.8;
+			top:0;
+			left:0;
+			border-radius: 50px;
+			@media only screen and (max-width: 600px) {
+				height: ($inputDem - 10px);
+				width: ($inputDem - 10px) * 1.8;
+			}
+			&.primary--text{
+				transform: initial !important
+			}
 		}
 		.v-input--selection-controls__input{
-			height: $inputDem -2px;
+			height: $inputDem;
+			width: $inputDem * 2;
+			@media only screen and (max-width: 600px) {
+				height: ($inputDem - 10px);
+				width: ($inputDem - 10px) * 2;
+			}
 		}
 		.v-input--switch__thumb {
 			@include corners;
@@ -165,6 +194,17 @@ $inputDem: 30px;
 			top:-1px;
 			left: -1px;
 			height: $inputDem;
+			border-radius: 50px;
+			&.primary--text{
+				transform: translate(($inputDem - 5px), 0) !important;
+			}
+			@media only screen and (max-width: 600px) {
+				height: ($inputDem - 10px);
+				width: ($inputDem - 10px);
+				&.primary--text{
+					transform: translate(($inputDem - 15px), 0) !important;
+				}
+			}
 			&:before{
 				content: '';
 				background-image: url('../assets/idea.svg');
@@ -180,9 +220,9 @@ $inputDem: 30px;
 				}
 			}
 		}
-	}
-	label{
-		@include fontbase
+		label{
+			@include fontbase
+		}
 	}
 }
 

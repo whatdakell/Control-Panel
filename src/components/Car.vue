@@ -63,7 +63,7 @@ $middle-height: 200px;
 	justify-content: center;
 	align-items: center;
 	max-width: 400px;
-	padding: 10%;
+	padding: $v-space;
 	// Car Placement CSS
 	.car{
 		height: $middle-height/2;

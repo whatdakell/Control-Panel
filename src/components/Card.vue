@@ -61,6 +61,10 @@ export default {
 			const getTire = document.querySelector(`.${data.class}`);
 			// Use the Json to animate and fill the tire
 			getTire.setAttribute('style',`transform:translateY(-${data.value}%)`)
+			console.log(data.value)
+			if( data.value < 50){
+				getTire.parentElement.setAttribute('style',`border: 1px solid red`)
+			}
 			
 			this.tp = data
 			console.log(getTire, this.tp);
@@ -73,8 +77,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-// Place holder until we figure out wtf is going wrong
-$bg-primary: #e8edf4;
 
 .v-alert__wrapper{
 	width: 100%;
@@ -104,18 +106,31 @@ $bg-primary: #e8edf4;
 	}
 	
 }
+
 header{
 	height: 10%;
 	display: flex;
 	margin-bottom: 10%;
 	h1{
 		font-size: 20px;
+		color: $active;
 	}
 	p{
 		font-size: 10px;
 	}
 	.copy{
 		margin-right: auto;
+	}
+	.v-btn{
+		@include corners;
+		padding: 20px 5px!important;
+		height: 40px!important;
+		min-height: 100%;
+		min-width: 0px!important;
+		.v-icon{
+			font-size: 40px;
+			color: $active;
+		}
 	}
 }
 .top-wrapper{
