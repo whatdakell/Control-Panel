@@ -158,7 +158,7 @@ $sideGutter: 50px;
 }
 
 $inputDem: 40px;
-
+$iconDem: 25px;
 // Toggle Switchs
 .v-input--switch{
 	width: 45%;
@@ -171,6 +171,26 @@ $inputDem: 40px;
 			top:0;
 			left:0;
 			border-radius: 50px;
+			opacity: .9;
+			&:after,
+			&:before{
+				content: '';
+				background-image: url('../assets/idea.svg');
+				width: $iconDem;
+				height: $iconDem;
+				display: block;
+				position: absolute;
+				top:50%;
+				transform: translateY(-50%);
+			}
+			&:after{
+				opacity: 1;
+				right: 5px;
+			}
+			&:before{
+				left: 10px;
+				opacity: 0.5;
+			}
 			@media only screen and (max-width: 600px) {
 				height: ($inputDem - 10px);
 				width: ($inputDem - 10px) * 1.8;
@@ -208,11 +228,12 @@ $inputDem: 40px;
 			&:before{
 				content: '';
 				background-image: url('../assets/idea.svg');
-				width: 20px;
-				height: 20px;
+				width: $iconDem;
+				height: $iconDem;
 				display: block;
 				@include center;
 				opacity: 0.5;
+				background-position: center center;
 			}
 			&.primary--text{
 				&:before{
