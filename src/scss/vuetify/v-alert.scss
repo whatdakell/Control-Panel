@@ -1,16 +1,89 @@
+$dropDownHeight: 60px;
+
+body .v-application .primary--text{
+	color: $inactive !important;
+	caret-color: $inactive !important;
+}
 .v-alert{
 	text-align: center;
 	@include corners;
 	font-weight: bold;
 	margin: 10% auto;
+	height: $dropDownHeight;
+	padding: 0 5%;
+	display: flex;
+	justify-content: center;
+
 }
 
+$sideGutter: 50px;
 .drop-down{
-	font-size: 16px;
+	// font-size: 16px;
+	// Icon 
+	.v-select{
+		.v-menu__content{
+			@include corners
+		}
+		// Selec:
+		.v-input__icon--prepend-inner {
+			width: $sideGutter;
+			i{
+				font-size: 12px;
+				color: $inactive!important;
+				font-style: normal;
+				font-weight: light;
+			}
+		}
+		// Arrow
+		.v-input__append-inner{
+			width: $sideGutter;
+			.v-input__icon--append{
+				@include corners;
+				width: $sideGutter - 10px;
+				height: $sideGutter - 10px;
+				flex: none;
+				margin: 0 auto;
+				border: none;
+				border-radius: 100%;
+			}
+		}
+	}
 	.v-input__slot{
+		// width: 80%;
 		text-align: center;
 		@include corners;
 		font-weight: bold;
+		height: $dropDownHeight;
+		.v-select__slot {
+			.v-label{
+				// @include h-center();
+				padding-right: 50px;
+				left: 50%!important;
+				transform: translateX(-50%);
+			}
+		}
+	}
+	.v-select__selections{
+		.v-select__selection{
+			margin: auto;
+			color:$active;
+			font-size: 16px;
+			padding: 5px 0px;
+		}
+		input{
+			display: none;
+		}
+	}
+	.v-menu__content{
+		@include corners;
+		.v-list-item{
+			font-size: 10px;
+		}
+		.v-list-item__title{
+			@include fontbase;
+			font-weight: bold;
+			font-size: 12px;
+		}
 	}
 }
 
@@ -106,15 +179,6 @@ $inputDem: 25px;
 			}
 		}
 
-	}
-}
-
-.v-select{
-	.v-menu__content{
-		@include corners
-	}
-	.v-input__append-inner{
-		@include corners;
 	}
 }
 

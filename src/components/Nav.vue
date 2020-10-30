@@ -6,11 +6,12 @@
 			:items="tpData"
 			item-text="side"
 			item-value="value"
-			label="Select"
+			label="Tire Pressure"
 			solo
-			append-icon = "mdi-format-align-right"
+			append-icon = "mdi-arrow-down"
 			return-object
 			@change="emitEventChanged"
+			prepend-inner-icon="Select:"
 			
 		>	</v-select>
 

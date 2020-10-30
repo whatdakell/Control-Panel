@@ -1,12 +1,16 @@
 <template>
 	<v-card>
+		<div class="top-wrapper">
+
 		<Nav @testOmit="tester"/>
 		<Car />
-		<v-alert icon="mdi-firework">	
-			<p v-if="tp.value < 50">Check your {{tp.side}} tire ! Its at {{tp.value}}</p>
-			<p v-if="tp.value > 50"> Your {{tp.side}} tire looks good! </p>
+		<v-alert>	
+			<div class="alert-wrapper" v-if="tp.value < 50"><v-icon>mdi-alert-outline</v-icon><p>Check your {{tp.side}} tire ! Its at {{tp.value}}</p>
+			</div>
+			<div class="alert-wrapper" v-if="tp.value > 50"><v-icon>mdi-checkbox-marked-circle</v-icon>	<p> Your {{tp.side}} tire looks good! </p></div>
 			<p v-show="!tp"> Check your Tire Pressure Above </p>		
 		</v-alert>	
+		</div>
 		<ToggleSwift/>
 	</v-card>
 </template>
@@ -53,7 +57,17 @@ export default {
 // Place holder until we figure out wtf is going wrong
 $bg-primary: #e8edf4;
 
+.alert-wrapper{
+	display: flex;
+	i{
+		padding-right: 20px;
+	}
+}
 
+.top-wrapper{
+	width:90%;
+	margin: auto;
+}
 // .v-card{
 // 	background: $bg-primary;
 // 	margin: 30px auto;
