@@ -76,11 +76,33 @@ export default {
 // Place holder until we figure out wtf is going wrong
 $bg-primary: #e8edf4;
 
+.v-alert__wrapper{
+	width: 100%;
+}
 .alert-wrapper{
 	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	animation: fadeIn 400ms linear;
 	i{
-		padding-right: 20px;
+		padding-right: 2%;
+		&.mdi-checkbox-marked-circle{
+			color: $active;
+		}
+		&.mdi-alert-outline{
+			color: $orange;
+		}
 	}
+}
+@keyframes fadeIn {
+	0%{
+		opacity:0;
+	}
+	100% {
+		opacity: 1;
+	}
+	
 }
 header{
 	height: 10%;
@@ -103,15 +125,6 @@ header{
 .v-card{
 	overflow: hidden;
 }
-
-// .v-card{
-// 	background: $bg-primary;
-// 	margin: 30px auto;
-// 	padding: 10% 5%;
-// 	/* display: flex; */
-// 	width: 400px;
-// }
-
 
 
 </style>

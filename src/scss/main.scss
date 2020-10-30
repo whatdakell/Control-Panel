@@ -1,24 +1,11 @@
-// @import 'partials/vueOV';
+
 @import 'partials/mixins';
 @import 'partials/vars';
-@import 'partials/globals';
-// @import 'partials/*';
+@import 'partials/animations';
 
-@import './vuetify/v-alert';
-@import './vuetify/v-overrides';
+@import './vuetify/overrides';
 
 body{
 	// background-color: #bfcbdb;
-	// color: $active;
+	color: $active;
 }
-label{
-	color: green;
-	
-}
-.v-label{
-	 color:black;
-	 font-size: 1rem;
- }
-// input{
-// 	background-color: blue;
-// }
