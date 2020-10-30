@@ -1,17 +1,28 @@
 <template>
 	<v-card>
-		<div class="top-wrapper">
-
-		<Nav @testOmit="tester"/>
-		<Car />
-		<v-alert>	
-			<div class="alert-wrapper" v-if="tp.value < 50"><v-icon>mdi-alert-outline</v-icon><p>Check your {{tp.side}} tire ! Its at {{tp.value}}</p>
+		<Nav :class='{"open": active}' @toggleNav="menu"/>
+		<div class="card-wrapper">
+			<header>
+				<div class="copy">
+				<p>Flat 500</p>
+				<h1>Control Panel</h1>
+				</div>
+				<v-btn @click="active = !active">
+					<v-icon>mdi-menu</v-icon>
+				</v-btn>
+			</header>
+			<div class="top-wrapper">
+			<Dropdown @testOmit="tester"/>
+			<Car />
+			<v-alert>	
+				<div class="alert-wrapper" v-if="tp.value < 50"><v-icon>mdi-alert-outline</v-icon><p>Check your {{tp.side}} tire ! Its at {{tp.value}}</p>
+				</div>
+				<div class="alert-wrapper" v-if="tp.value > 50"><v-icon>mdi-checkbox-marked-circle</v-icon>	<p> Your {{tp.side}} tire looks good! </p></div>
+				<p v-show="!tp"> Check your Tire Pressure Above </p>		
+			</v-alert>	
 			</div>
-			<div class="alert-wrapper" v-if="tp.value > 50"><v-icon>mdi-checkbox-marked-circle</v-icon>	<p> Your {{tp.side}} tire looks good! </p></div>
-			<p v-show="!tp"> Check your Tire Pressure Above </p>		
-		</v-alert>	
+			<ToggleSwift/>
 		</div>
-		<ToggleSwift/>
 	</v-card>
 </template>
 
@@ -19,6 +30,7 @@
 
 import Car from '@/components/Car';
 import ToggleSwift from '@/components/ToggleSwift';
+import Dropdown from '@/components/Dropdown';
 import Nav from '@/components/Nav';
 
 export default {
@@ -26,17 +38,24 @@ export default {
 		components: {
 			Nav,
 			Car,
-			ToggleSwift
+			ToggleSwift,
+			Dropdown
 	},
   // props: {
   //   msg: String
   // },
 	data () {
 			return {
-				tp: ''
+				// drawer: false,
+				tp: '',
+				active: '',
+				items: ['car1','car2']
 			}
 		},
 	methods: {
+		menu (data) {
+			this.active = data
+		},
 		tester (data) {
 			// using a class value from json to find the tire to animate
 			const getTire = document.querySelector(`.${data.class}`);
@@ -63,11 +82,28 @@ $bg-primary: #e8edf4;
 		padding-right: 20px;
 	}
 }
-
+header{
+	height: 10%;
+	display: flex;
+	margin-bottom: 10%;
+	h1{
+		font-size: 20px;
+	}
+	p{
+		font-size: 10px;
+	}
+	.copy{
+		margin-right: auto;
+	}
+}
 .top-wrapper{
 	width:90%;
 	margin: auto;
 }
+.v-card{
+	overflow: hidden;
+}
+
 // .v-card{
 // 	background: $bg-primary;
 // 	margin: 30px auto;

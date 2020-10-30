@@ -1,0 +1,21 @@
+.card-wrapper{
+	> *{
+		@include staggerAnimation(10, 100, 150);
+		transform: translate3d(0, 45px, 0) scale(1.0, 1.0);
+		opacity: 0;
+		backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+		-webkit-font-smoothing: antialiased !important;
+		transition: none;
+		transition-property: transform, opacity;
+		transition-timing-function: cubic-bezier(0, 0, 0.2, 1), ease-in-out;
+		transition-duration: 0.75s, 1s;
+	}
+}
+
+.menu:not(.open) + .card-wrapper{
+	> *{
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}

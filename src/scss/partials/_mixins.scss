@@ -32,3 +32,17 @@
 @mixin inShadow {
 	box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.12)!important;
 }
+
+// If set Delay is true then $interval Delay must be 0
+@mixin staggerAnimation($numOfItems, $intervalDelay, $setStagger: false) {
+	@for $i from 1 through $numOfItems {
+		&:nth-child(#{($i)}) {
+			@if $setStagger {
+				$fixedDelay: $intervalDelay + $setStagger * $i;
+				transition-delay: #{$fixedDelay}ms;
+			} @else {
+				transition-delay: #{$intervalDelay * $i}ms;
+			}
+		}
+	}
+}

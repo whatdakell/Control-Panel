@@ -1,64 +1,54 @@
 <template>
-	<div class="drop-down">
 
-		<v-select
-			v-model="tp"
-			:items="tpData"
-			item-text="side"
-			item-value="value"
-			label="Tire Pressure"
-			solo
-			append-icon = "mdi-arrow-down"
-			return-object
-			@change="emitEventChanged"
-			prepend-inner-icon="Select:"
-			
-		>	</v-select>
-
+	<div class="menu">
+		<v-icon @click="closeNav" >mdi-arrow-left</v-icon>
+		<p>Place Holder Menu</p>
 	</div>
 </template>
 
 <script>
-// Put back in to get objc
-// return-object
-// single-line
-import testData from '@/components/testData.json';
 
-console.log(testData,"here is the test data");
-const tester = testData.map(item => console.log(item));
-console.log(tester,'this');
+
 export default {
     name: 'Nav',
 		data () {
 			return {
-				tpData: [],
-				tp: '',
-				selection: testData,
+				active: '',
+				close: ''
       }
 		},
 		methods: {
-		emitEventChanged () {
-				this.$emit('testOmit', this.tp);
+		closeNav () {
+				this.$emit('toggleNav', this.active);
 				}
 		},
-		mounted () {
-			const baseURI = 'https://my-json-server.typicode.com/keli5466/demo/db'
-			this.$http.get(baseURI)
-			.then((result) => {
-				this.tpData = result.data.tirepressure
-			})
-		}
-		// computed: {
-		// 	select: function(){
-		// 		return 'this is a fucking test' 
-		// 	}
-		// }
 		
 };
 </script>
 
 <style lang="scss" scoped>
-
+.menu{
+	padding: 5%;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: $bg-primary;
+	top: 0;
+	left:0;
+	transform: translateX(-100%);
+	z-index:10;
+	opacity: 0;
+	transition: all 1s ease 0s;
+	&.open{
+		opacity: 1;
+		transition-delay: 0.7s!important;
+		transform: translateX(0);
+	}
+	p{
+		font-size: 30px;
+		margin: 5% auto;
+	}
+}
 // .v-input{
 // 	max-width:50%;
 // 	// background: $bg-primary;
