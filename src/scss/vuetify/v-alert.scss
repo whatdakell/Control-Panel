@@ -1,5 +1,4 @@
 .v-alert{
-	background: $bg-primary;
 	text-align: center;
 	@include corners;
 	font-weight: bold;
@@ -7,8 +6,30 @@
 }
 
 .drop-down{
+	font-size: 16px;
 	.v-input__slot{
-		background: $bg-primary!important;
-		@extend .v-alert;
+		text-align: center;
+		@include corners;
+		font-weight: bold;
 	}
+}
+
+// Toggle Switchs
+.v-input--switch{
+	width: 45%;
+	.v-input__slot{
+		flex-flow: row-reverse;
+		.v-input--selection-controls__input{
+			@include corners;
+		}
+	}
+}
+
+
+.v-card{
+	background: $bg-primary;
+	margin: 30px auto;
+	padding: 5% 20px;
+	/* display: flex; */
+	width: 400px;
 }

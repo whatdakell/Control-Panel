@@ -1,6 +1,6 @@
 <template>
 	<div class="bottom-container">
-		<v-container fluid class="toggle-switch-ctn">
+		<div class="toggle-switch-ctn">
 
 			<v-switch
 				v-for="a in switchs" :key="a"
@@ -8,7 +8,6 @@
 				v-model= a.attr
 				multiple ="true"
 				:label="`${a.label}: ${a.attr ? 'On' : 'Off'}`"
-				icon="mdi-format-align-justify"
 				value="false"
 				
 			></v-switch>
@@ -37,7 +36,7 @@
 				:label="`Heating: ${switch4 ? 'on' : 'off'}`"
 				:value="true"
 			></v-switch> -->
-		</v-container>
+		</div>
 
 
 		<div class="btns">
@@ -55,7 +54,7 @@
 </template>
 
 <script>
-import '../scss/main.scss'
+
 export default {
   name: 'Card',
   // props: {
@@ -104,7 +103,11 @@ export default {
 	width:0px;
 	// background-color: yellow;
 }
-
+.toggle-switch-ctn{
+	display:flex;
+	flex-wrap:wrap;
+	justify-content: space-between;
+}
 // BG of slider
 .v-input--switch__track{
 	// background: pink;

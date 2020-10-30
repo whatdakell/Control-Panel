@@ -18,7 +18,7 @@
 import Car from '@/components/Car';
 import ToggleSwift from '@/components/ToggleSwift';
 import Nav from '@/components/Nav';
-// import '../scss/main.scss'
+
 export default {
   name: 'Card',
 		components: {
@@ -61,13 +61,13 @@ export default {
 $bg-primary: #e8edf4;
 
 
-.v-card{
-	background: $bg-primary;
-	margin: 30px auto;
-	padding: 10% 5%;
-	/* display: flex; */
-	width: 400px;
-}
+// .v-card{
+// 	background: $bg-primary;
+// 	margin: 30px auto;
+// 	padding: 10% 5%;
+// 	/* display: flex; */
+// 	width: 400px;
+// }
 
 
 
